@@ -16,6 +16,7 @@ class register
 	}
 }
 */
+/*
 function register($controller,$columnValue)
 {
 	$className = $controller . "Model";
@@ -32,6 +33,6 @@ function register($controller,$columnValue)
 	echo $result;
 	
 }
-
+*/
 $result = register($controller,$columnValue);
 print $result;

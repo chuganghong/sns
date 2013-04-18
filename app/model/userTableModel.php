@@ -26,7 +26,15 @@ class updateNothing implements updateRows
 		//do nothing
 	}
 }
-
+class partUsers implements selectPart
+{
+	function getPartRows($startId,$length)    //获取一部分
+	{
+		$db = model::getDb();
+		$sql = "SELECT * FROM user LIMIT $startId,$length";
+		$db->query($sql);
+	}
+}
 
 class allUsersRows implements selectAll    //获取user表中所有用户的总数
 {

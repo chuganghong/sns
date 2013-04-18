@@ -32,3 +32,9 @@ interface updateRows
 {
 	function update();    //更新
 }
+
+//输出接口
+interface display
+{
+	function display();
+}

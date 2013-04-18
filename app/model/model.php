@@ -144,6 +144,19 @@ abstract class model
 		}
 	}
 	
+	function startIdPages($length,$cpage)   //总页数，$startId
+	{
+		$rows = $this->performSelectAll();
+		$num = ceil($rows/$length);
+		
+		if( !isset($_GET[$cpage]) )
+		{
+			$_GET[$cpage] = 1;
+		}
+		$startId = ($_GET[$cpage]-1)*$length;
+		$result[$startId] = $num;
+		return $result;
+	}
 	function filterData($data)//过滤数据，$data是字符串
 	{
 		$data = trim($data);

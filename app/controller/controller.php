@@ -8,12 +8,14 @@ abstract class controller
 		$this->controller = $controller;
 	}
 	
-	abstract function register_form();
+	/*
+	abstract function registerForm();
 	
 	
-	abstract function login_form();	
+	abstract function loginForm();	
 	
 	abstract function login();	
+	*/
 	
 	function register()
 	{

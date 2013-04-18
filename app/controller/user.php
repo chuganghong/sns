@@ -1,17 +1,18 @@
 <?php
 class user extends controller
 {
-	function register_form()
+	function registerForm()
 	{
 		$url_1 = $_SERVER["SCRIPT_NAME"] . "?user/register";
 		$url_2 = $_SERVER["SCRIPT_NAME"] . "?user/checkReg";
-		require_once("register_form.php");
+		require_once("registerForm.php");
 	}
 	
-	function login_form()
+	function loginForm()
 	{
-		$url = $_SERVER["SCRIPT_NAME"] . "?user/login";
-		require_once("login_form.php");
+		$url_1 = $_SERVER["SCRIPT_NAME"] . "?user/login";
+		$url_2 = $_SERVER["SCRIPT_NAME"] . "?user/userIndex";
+		require_once("loginForm.php");
 	}
 	
 	function checkReg()     //检测是否存在某用户名
@@ -43,8 +44,25 @@ class user extends controller
 		 * 若用一个文件来处理，可以少用一个文件，但是却让一个文件太长。
 		 * 若用两个文件来处理，那么，出现重复代码，
 		*/
-		require_once("login.php");
+		if( !empty($_POST) )
+		{
+			$columnValue = array($_POST["name"],$_POST["pwd"]);
+			$controller = __CLASS__;
+			require_once("login.php");
+		}
 		
+		
+	}
+	
+	function logout()
+	{
+		$controller = __CLASS__;
+		logoutFunction($controller);   //退出登录
+	}
+	
+	function userIndex()
+	{
+		require_once("userIndexView.php");
 	}
 	
 	function base()
