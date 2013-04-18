@@ -95,29 +95,39 @@ abstract class model
 		$this->update->update();    //更新
 	}
 	
-	function register($columnValue)   //注册：检测是否存在；若不存在，插入；若存在，提示。
+	function isExist($columnValue)    //检测数据库中是否存在某用户名
 	{
-		//$data = $this->filterInput($columnValue);    //过滤数据，$input可能是数组	
 		$columnValue = 	$this->filterInput($columnValue);    //过滤数据，$input可能是数组
 		$rows = $this->performSelectA($columnValue);
 		var_dump($rows);   //test
 		if( $rows>0 )
 		{
-			echo "已经存在此用户名。";    //此处应该输出数字代码还是文字提示信息？
+			$str =  "已经存在此用户名。";    //此处应该输出数字代码还是文字提示信息？
 		}
 		else
 		{
-			$this->performInsert($columnValue);
-			$num = self::$db->getAffectedRows();
-			if( $num>0 )
-			{
-				echo "注册成功。";
-			}
-			else
-			{
-				echo "注册失败。请重试！";
-			}
+			$str = "";
 		}
+		return $str;
+	}
+	
+	function register($columnValue)   //注册：检测是否存在；若不存在，插入；若存在，提示。
+	{
+		//$data = $this->filterInput($columnValue);    //过滤数据，$input可能是数组	
+		$columnValue = 	$this->filterInput($columnValue);    //过滤数据，$input可能是数组
+		$this->performInsert($columnValue);
+		$num = self::$db->getAffectedRows();
+		if( $num>0 )
+		{
+			//echo "注册成功。";
+			$str = "注册成功。";
+		}
+		else
+		{
+			//echo "注册失败。请重试！";
+			$str = "注册失败，请重试！";
+		}
+		return $str;		
 	}
 	
 	function login($columnValue)    //login
