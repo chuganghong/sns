@@ -48,13 +48,13 @@ class aUserRow implements selectA   //选取一个//查询数据库是否存在�
 		//$name = $this->filterData($columnValue);   //过滤数据，$data是字符串
 		$db = model::getDb();
 		$name = $columnValue[0];
-		var_dump($name);   //test
+		//var_dump($name);   //test
 		$sql = "SELECT COUNT(*) AS rows FROM user WHERE userName='$name'";
 		$db->query($sql);
 		$rows = $db->getRow();    //从结果集中取得一行
-		var_dump($rows);   //test
+		//var_dump($rows);   //test
 		$num = $rows["rows"];
-		var_dump($num);   //test
+		//var_dump($num);   //test
 		return $num;      //此用户名在数据库中的个数
 	}
 }

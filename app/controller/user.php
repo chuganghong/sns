@@ -3,7 +3,8 @@ class user extends controller
 {
 	function register_form()
 	{
-		$url = $_SERVER["SCRIPT_NAME"] . "?user/register";
+		$url_1 = $_SERVER["SCRIPT_NAME"] . "?user/register";
+		$url_2 = $_SERVER["SCRIPT_NAME"] . "?user/checkReg";
 		require_once("register_form.php");
 	}
 	
@@ -13,9 +14,24 @@ class user extends controller
 		require_once("login_form.php");
 	}
 	
+	function checkReg()     //检测是否存在某用户名
+	{
+		if( isset($_POST["name"]) )
+		{
+			$columnValue = array($_POST["name"],"");
+		}
+		$controller = __CLASS__;
+		require_once("checkReg.php");
+	}
+	
 	function register()
 	{
-		$columnValue = array($_POST["name"],$_POST["pwd"]);
+		if( isset($_POST) )
+		{
+			$columnValue = array($_POST["name"],$_POST["pwd"]);
+			
+		}
+			
 		$controller = __CLASS__;
 		require_once("register.php");
 	}

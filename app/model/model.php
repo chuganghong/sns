@@ -99,14 +99,14 @@ abstract class model
 	{
 		$columnValue = 	$this->filterInput($columnValue);    //过滤数据，$input可能是数组
 		$rows = $this->performSelectA($columnValue);
-		var_dump($rows);   //test
+		//var_dump($rows);   //test
 		if( $rows>0 )
 		{
 			$str =  "已经存在此用户名。";    //此处应该输出数字代码还是文字提示信息？
 		}
 		else
 		{
-			$str = "";
+			$str = "可以使用。";
 		}
 		return $str;
 	}

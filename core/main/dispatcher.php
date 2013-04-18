@@ -21,7 +21,7 @@ class dispatcher
 			if( isset($start) )
 			{
 			    $time = microtime(true)-$start;
-				echo "Totall time for dispatching is: " . $time . " seconds.";
+				//echo "Totall time for dispatching is: " . $time . " seconds.";
 			}
 			$output = ob_get_clean();
 			echo $output;
