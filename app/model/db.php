@@ -16,7 +16,7 @@ class db
 	function query($sql)
 	{
 		mysql_query("SET NAMES UTF8");
-		$this->result = mysql_query($sql,$this->con) or die("Query failed:" . mysql_error());
+		$this->result = mysql_query($sql,$this->con);// or die("Query failed:" . mysql_error());
 	}
 	
 	function getRow()    //从结果集中取得一行

@@ -10,7 +10,7 @@
 	<li>日志</li>
 	<li><a href="<?php echo $_SERVER["SCRIPT_NAME"]; ?>?userIndex/postForm">写日志</a></li>
 	<li><a href="<?php echo $_SERVER["SCRIPT_NAME"]; ?>?userIndex/addFriendForm">找朋友</a></li>
-	<li>朋友</li>
-	<li>粉丝</li>
+	<li><a href="<?php echo $_SERVER["SCRIPT_NAME"]; ?>?userIndex/myFollowsForm">朋友</a></li>
+	<li><a href="<?php echo $_SERVER["SCRIPT_NAME"]; ?>?userIndex/myFansForm">粉丝</a></li>
 	<li><a href="<?php echo $_SERVER["SCRIPT_NAME"]; ?>?user/logout">退出</a></li>
 </ul>

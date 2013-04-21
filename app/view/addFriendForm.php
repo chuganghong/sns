@@ -28,7 +28,7 @@ class addFriendFormTable extends tableClass
 }
 
 $array_th = array("ID","用户名","操作");
-$operation = array("关注");
+$operation = array($_SERVER["SCRIPT_NAME"] . "?userIndex/addAFriend&friend="=>"关注");
 $object = new userModel();
 $selectPart = "partUsers";
 $object->setSelectPart($selectPart);
@@ -41,10 +41,21 @@ $startId = $keys[0];
 $pages = $result[$startId];
 $object->performSelectPart($startId,$length);
 $table = new addFriendFormTable($array_th,$operation,$object);
-$table->display();
+//$table->display();
 
 $url = $_SERVER["SCRIPT_NAME"] . "?userIndex/addFriendForm";
 //$pages = 5;
 $page = new pageClass($url,$pages);
-$page->display();
+//$page->display();
 ?>
+<form action="<?php echo $_SERVER["SCRIPT_NAME"]; ?>?userIndex/addFriends"  method="post">
+<table border="1" width="80%">
+<tr>
+	<td><?php $table->display(); ?></td>
+</tr>
+<tr>
+	<td algin="center"><input type="submit" value="关注" /></td>
+	<td colspan="3"><?php $page->display(); ?></td>
+</tr>
+</table>
+</form>

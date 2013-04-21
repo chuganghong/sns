@@ -30,6 +30,7 @@ create table post
 create table postContent
 (
 	contentId int not null auto_increment primary key,
+	postId int not null,   #日志标题的ID，2013年4月19日补充
 	content mediumtext   #日志内容
 );#日志内容表
 

@@ -84,6 +84,19 @@ class aUserRowNP implements selectA //选取一个。查询数据库是否存在
 	}
 }
 
+class aUserNI implements selectA //获取一个用户的所有资料
+{
+	function getARow($columnValue)
+	{
+		$db = model::getDb();
+		$name = $columnValue[0];
+		$sql = "SELECT * FROM user WHERE userName='$name'";
+		$db->query($sql);
+		$rows = $db->getRow();
+		return $rows;
+	}
+}
+
 class insertUser implements insert     //查询数据库是否存在某用户名时用到，注意用于注册时
 {
 	function insertRow($columnValue)

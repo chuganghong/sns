@@ -10,6 +10,21 @@ function checkSession()    //检测是否开启了SESSION，若没有开启，�
 	}
 }
 
+function checkLogin($controller)   //检测是否登录
+{
+	$name = $controller . "Name";
+	if( isset($_SESSION[$name]) )
+	{
+		//已经登录
+		$result = true;
+	}
+	else
+	{
+		//没有登录
+		$result = false;
+	}
+	return $result;
+}
 
 function loginFunction($controller,$columnValue,$class)   //登录
 {
@@ -57,3 +72,4 @@ function register($controller,$columnValue)   //注册
 	return $result;
 	//echo $result;
 }
+

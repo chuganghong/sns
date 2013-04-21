@@ -157,6 +157,7 @@ abstract class model
 		$result[$startId] = $num;
 		return $result;
 	}
+	
 	function filterData($data)//过滤数据，$data是字符串
 	{
 		$data = trim($data);
